@@ -19,7 +19,10 @@ const Hero = () => {
 
             <div className="lg:py-24">
               <h2 className="text-3xl font-bold sm:text-4xl">
-                Grow your audience
+                Find & Book
+                <span className="text-primary">Appointment</span>
+                with your Fav
+                <span className="text-primary">Doctors</span>
               </h2>
 
               <p className="mt-4 text-gray-600">
