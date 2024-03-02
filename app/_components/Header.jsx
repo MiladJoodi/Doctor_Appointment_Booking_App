@@ -32,7 +32,7 @@ const Header = () => {
                 />
                 <ul className="md:flex gap-8 hidden">
                     {Menu.map((item, index)=>(
-                        <Link>
+                        <Link href={path}>
                         <li  className="hover:text-primary cursor-pointer hover:scale-105 transition-all ease-in-out"  key={index}>{item.name}</li>
                         </Link>
                     ))}
