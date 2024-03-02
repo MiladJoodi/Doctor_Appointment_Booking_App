@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const Menu = [
     {
@@ -31,7 +32,9 @@ const Header = () => {
                 />
                 <ul className="md:flex gap-8 hidden">
                     {Menu.map((item, index)=>(
-                        <li key={index}>{item.name}</li>
+                        <Link>
+                        <li  className="hover:text-primary cursor-pointer hover:scale-105 transition-all ease-in-out"  key={index}>{item.name}</li>
+                        </Link>
                     ))}
                 </ul>
             </div>
