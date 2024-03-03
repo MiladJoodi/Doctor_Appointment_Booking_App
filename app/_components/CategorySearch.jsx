@@ -4,22 +4,34 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import GlobalApi from "@/_units/GlobalApi";
+// import GlobalApi from "@/_units/GlobalApi";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const CategorySearch = () => {
   const [categoryList, setCategoryList] = useState([]);
 
   useEffect(() => {
-    getCategoryList();
-  }, []);
+    console.log('effect')
+    axios
+      .get('http://localhost:4000/cats')
+      .then(response => {
+        console.log('promise fulfilled')
+        setCategoryList(response.data)
+      })
+  }, [])
 
-  const getCategoryList = () => {
-    GlobalApi.getCategory().then((resp) => {
-      console.log(resp.data.data);
-      setCategoryList(resp.data.data);
-    });
-  };
+
+  // useEffect(() => {
+  //   getCategoryList();
+  // }, []);
+
+  // const getCategoryList = () => {
+  //   GlobalApi.getCategory().then((resp) => {
+  //     console.log(resp.data.data);
+  //     setCategoryList(resp.data.data);
+  //   });
+  // };
 
   return (
     <div className="mb-10 flex flex-col items-center gap-2 px-5">
@@ -46,7 +58,7 @@ const CategorySearch = () => {
           className="flex flex-col items-center text-center gap-2 bg-blue-100 p-5 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
           >
             <Image
-              src={item.attributes?.icon?.data.attributes?.url}
+              src={item.img}
               alt="icon"
               width={40}
               height={40}

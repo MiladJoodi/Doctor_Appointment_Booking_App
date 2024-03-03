@@ -1,0 +1,10 @@
+{
+    "cats": [
+      { "id": 1, "title": "Dentist", "img": "/images/cats/02.png" }
+    ],
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" }
+  }
+
