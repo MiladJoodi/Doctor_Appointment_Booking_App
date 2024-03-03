@@ -16,7 +16,6 @@ const CategorySearch = () => {
     axios
       .get('http://localhost:4000/cats')
       .then(response => {
-        console.log('promise fulfilled')
         setCategoryList(response.data)
       })
   }, [])
@@ -55,15 +54,15 @@ const CategorySearch = () => {
       <div className="grid grid-cols-3 mt-5 md:grid-cols-4 lg:grid-cols-6">
         {categoryList.map((item, index) =>index<6 && (
           <div key={index} 
-          className="flex flex-col items-center text-center gap-2 bg-blue-100 p-5 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
+          className="flex flex-col items-center text-center gap-2 bg-blue-50 p-5 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
           >
             <Image
-              src={item.img}
+              src={item?.img}
               alt="icon"
               width={40}
               height={40}
             />
-            <label className="text-blue-600 text-sm">{item.attributes?.Name}</label>
+            <label className="text-blue-600 text-sm">{item?.title}</label>
           </div>
         ))}
       </div>

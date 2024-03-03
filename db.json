@@ -1,6 +1,14 @@
 {
     "cats": [
-      { "id": 1, "title": "Dentist", "img": "/images/cats/02.png" }
+      { "id": 1, "title": "Cardiologist", "img": "/images/cats/01.png" },
+      { "id": 2, "title": "Dentist", "img": "/images/cats/02.png" },
+      { "id": 3, "title": "Ophthalmologists", "img": "/images/cats/08.png" },
+      { "id": 4, "title": "Otology", "img": "/images/cats/04.png" },
+      { "id": 5, "title": "Orthopedic", "img": "/images/cats/05.png" },
+      { "id": 6, "title": "General Doctor", "img": "/images/cats/06.png" },
+      { "id": 7, "title": "Radiologist", "img": "/images/cats/07.png" },
+      { "id": 8, "title": "Otology", "img": "/images/cats/08.png" },
+      { "id": 9, "title": "General Doctor", "img": "/images/cats/09.png" }
     ],
     "comments": [
       { "id": 1, "body": "some comment", "postId": 1 }
