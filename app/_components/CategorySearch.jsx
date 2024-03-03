@@ -1,10 +1,24 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import GlobalApi from "@/_units/GlobalApi";
+import { useEffect } from "react";
 
 const CategorySearch = () => {
+
+  useEffect(()=>{
+    getCategoryList()
+  },[])
+
+  const getCategoryList = ()=>{
+    GlobalApi.getCategory().then(resp=>{
+      console.log(resp.data.data)
+    })
+  }
+
   return (
     <div className="mb-10 flex flex-col items-center gap-2">
 
