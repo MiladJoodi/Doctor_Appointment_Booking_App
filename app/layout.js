@@ -17,8 +17,8 @@ export default function RootLayout({ children }) {
         <div className="md:px-20">
           <Header />
           {children}
-          <Footer />
         </div>
+          <Footer />
       </body>
     </html>
   );

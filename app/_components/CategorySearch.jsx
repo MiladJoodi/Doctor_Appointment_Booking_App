@@ -52,7 +52,7 @@ const CategorySearch = () => {
 
       {/* Display List of Category */}
       <div className="grid grid-cols-3 mt-5 md:grid-cols-4 lg:grid-cols-6">
-        {categoryList.map((item, index) =>index<6 && (
+        {categoryList.length>0 ? categoryList.map((item, index) =>index<6 && (
           <div key={index} 
           className="flex flex-col items-center text-center gap-2 bg-blue-50 p-5 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
           >
@@ -64,7 +64,14 @@ const CategorySearch = () => {
             />
             <label className="text-blue-600 text-sm">{item?.title}</label>
           </div>
-        ))}
+        ))
+      :
+      // Skeleton Effect
+      [1,2,3,4,5,6].map((item, index)=>(
+      <div className="w-[130px] h-[120px] bg-slate-200 m-2 animate-pulse rounded">
+      </div>
+      ))
+      }
       </div>
     </div>
   );
