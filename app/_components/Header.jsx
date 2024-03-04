@@ -6,6 +6,12 @@ import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { useEffect } from "react";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
 const Menu = [
   {
     id: 1,
@@ -45,16 +51,30 @@ const Header = () => {
         </ul>
       </div>
       {user ? (
-        <Image
-        src={user?.picture}
-        alt="profile-image"
-        width={50}
-        height={50}
-        className="rounded-full"
-        />
-        // <LogoutLink>
-        //     <Button variant="outline">Log out</Button>
-        // </LogoutLink>
+        <Popover>
+          <PopoverTrigger>
+            <Image
+              src={user?.picture}
+              alt="profile-image"
+              width={50}
+              height={50}
+              className="rounded-full"
+            />
+          </PopoverTrigger>
+          <PopoverContent className="w-44">
+            <ul className="flex flex-col gap-2">
+              <li className="cursor-pointer hover:bg-slate-100 p-2 rounded-md">
+                Profile
+              </li>
+              <li className="cursor-pointer hover:bg-slate-100 p-2 rounded-md">
+                My Booking
+              </li>
+              <li className="cursor-pointer hover:bg-slate-100 p-2 rounded-md">
+                <LogoutLink>Logout</LogoutLink>
+              </li>
+            </ul>
+          </PopoverContent>
+        </Popover>
       ) : (
         <LoginLink>
           <Button>Get Started</Button>

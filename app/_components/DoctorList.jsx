@@ -4,13 +4,15 @@ import Link from "next/link";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const DoctorList = ({doctorList, heading='Popular Doctors'}) => {
+const DoctorList = ({ doctorList, heading = "Popular Doctors" }) => {
   const [doctorsList, setDoctorsList] = useState([]);
 
   useEffect(() => {
-    axios.get("https://realtendency.backendless.app/api/data/DoctorsCat").then((response) => {
-      setDoctorsList(response.data);
-    });
+    axios
+      .get("https://realtendency.backendless.app/api/data/DoctorsCat")
+      .then((response) => {
+        setDoctorsList(response.data);
+      });
   }, []);
 
   return (
@@ -40,18 +42,17 @@ const DoctorList = ({doctorList, heading='Popular Doctors'}) => {
                   </h2>
                   <h2 className="text-gray-500 text-sm">{doctor.Address}</h2>
 
-                  <h2 className="p-2 px-3 border-[1px] text-primary rounded-full w-full text-center text-[11px] mt-2 cursor-pointer hover:bg-primary hover:text-white">
-                    Book Now
-                  </h2>
+                  <Link href={"/details/" + doctor?.id} className="w-full">
+                    <h2 className="p-2 px-3 border-[1px] text-primary rounded-full w-full text-center text-[11px] mt-2 cursor-pointer hover:bg-primary hover:text-white">
+                      Book Now
+                    </h2>
+                  </Link>
                 </div>
               </div>
             ))
           : // Skeleton Effect
             [1, 2, 3, 4, 5, 6].map((item, index) => (
-              <div 
-              className="h-[220px] bg-slate-200 w-full rounded-lg animate-pulse">
-
-              </div>
+              <div className="h-[220px] bg-slate-200 w-full rounded-lg animate-pulse"></div>
             ))}
       </div>
     </div>
