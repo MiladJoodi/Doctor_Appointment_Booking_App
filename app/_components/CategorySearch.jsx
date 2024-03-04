@@ -14,7 +14,7 @@ const CategorySearch = () => {
   useEffect(() => {
     console.log('effect')
     axios
-      .get('http://localhost:4000/cats')
+      .get('https://realtendency.backendless.app/api/data/DoctorCats')
       .then(response => {
         setCategoryList(response.data)
       })

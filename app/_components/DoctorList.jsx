@@ -8,7 +8,7 @@ const DoctorList = () => {
   const [doctorsList, setDoctorsList] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/doctors").then((response) => {
+    axios.get("https://realtendency.backendless.app/api/data/DoctorsCat").then((response) => {
       setDoctorsList(response.data);
     });
   }, []);
