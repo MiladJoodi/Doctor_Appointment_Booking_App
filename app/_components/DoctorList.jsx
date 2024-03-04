@@ -4,7 +4,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const DoctorList = () => {
+const DoctorList = ({doctorList, heading='Popular Doctors'}) => {
   const [doctorsList, setDoctorsList] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const DoctorList = () => {
 
   return (
     <div className="mb-10 px-8">
-      <h2 className="font-bold text-xl">Popular Doctors</h2>
+      <h2 className="font-bold text-xl">{heading}</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 mt-4">
         {doctorsList.length > 0
           ? doctorsList.map((doctor, index) => (

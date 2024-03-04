@@ -12,7 +12,7 @@ const CategorySearch = () => {
   const [categoryList, setCategoryList] = useState([]);
 
   useEffect(() => {
-    console.log('effect')
+    // console.log('effect')
     axios
       .get('https://realtendency.backendless.app/api/data/DoctorCats')
       .then(response => {
@@ -53,7 +53,7 @@ const CategorySearch = () => {
       {/* Display List of Category */}
       <div className="grid grid-cols-3 mt-5 md:grid-cols-4 lg:grid-cols-6">
         {categoryList.length>0 ? categoryList.map((item, index) =>index<6 && (
-          <div key={index} 
+          <Link href={'/search/'+item.title} key={index} 
           className="flex flex-col items-center text-center gap-2 bg-blue-50 p-5 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
           >
             <Image
@@ -63,7 +63,7 @@ const CategorySearch = () => {
               height={40}
             />
             <label className="text-blue-600 text-sm">{item?.title}</label>
-          </div>
+          </Link>
         ))
       :
       // Skeleton Effect
