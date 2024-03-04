@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@kinde-oss/kinde-auth-nextjs": "^2.1.15",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "axios": "^1.6.7",
