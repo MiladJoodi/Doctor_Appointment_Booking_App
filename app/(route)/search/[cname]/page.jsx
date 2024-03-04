@@ -4,24 +4,20 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Search = ({ params }) => {
-  const [doctorsList, setDoctorsList] = useState([]);
+  const [doctorsList, setDoctorsList] = useState();
 
   useEffect(() => {
     getDoctors();
   }, []);
 
   const getDoctors = () => {
-    axios
-      .get("https://realtendency.backendless.app/api/data/DoctorsCat")
-      .then((response) => {
-        const data = response.data;
-        const newData = data.filter((item) => item.Categories === "Dentist");
-        setDoctorsList(newData);
+    axios.get("https://realtendency.backendless.app/api/data/DoctorsCat").then((response) => {
+        setDoctorsList(response.data);
       });
   };
 
   return (
-    <div>
+    <div className="mt-5">
       <DoctorList heading={params.cname} />
     </div>
   );

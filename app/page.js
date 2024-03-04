@@ -5,6 +5,7 @@ import CategorySearch from "./_components/CategorySearch";
 import DoctorList from "./_components/DoctorList";
 
 export default function Home() {
+
   return (
     <main>
       <Hero />
