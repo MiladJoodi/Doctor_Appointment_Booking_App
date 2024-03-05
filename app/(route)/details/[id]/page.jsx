@@ -1,24 +1,25 @@
+"use client";
+import DoctorList from "@/app/_components/DoctorList";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const Details = ({params}) => {
+const Details = ({ params }) => {
+  return (
+    <div className="p-5 md:px-10">
+      <h2 className="font-bold text-[22px]">Details</h2>
 
-    const [doctor, setDoctorList] = useState();
-
-    useEffect(() => {
-      getDoctors();
-    }, []);
-  
-    const getDoctors = () => {
-      axios.get("https://realtendency.backendless.app/api/data/DoctorsCat").then((response) => {
-          setDoctorsList(response.data);
-        });
-    };
-
-
-    return (
-        <div>
-            Details
+      <div className="grid grid-cols-1 lg:grid-cols-4 ">
+        {/* Doctor Detail  */}
+        <div className=" col-span-3">
+          <DoctorDetail />
         </div>
-    );
-}
+        {/* Doctor Suggestion  */}
+        <div>
+          <DoctorSuggestionList />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Details;
