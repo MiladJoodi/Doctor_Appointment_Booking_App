@@ -21,7 +21,7 @@ const DoctorList = ({ doctorList, heading = "Popular Doctors" }) => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 mt-4">
         {doctorsList.length > 0
           ? doctorsList.map((doctor, index) => (
-              <div
+              <Link href={"/details/"+doctor.objectId}
                 key={index}
                 className="border-[1px] rounded-lg p-3 cursor-pointer hover:border-primary hover:shadow-sm transition-all ease-in-out"
               >
@@ -48,7 +48,7 @@ const DoctorList = ({ doctorList, heading = "Popular Doctors" }) => {
                     </h2>
                   </Link>
                 </div>
-              </div>
+              </Link>
             ))
           : // Skeleton Effect
             [1, 2, 3, 4, 5, 6].map((item, index) => (
