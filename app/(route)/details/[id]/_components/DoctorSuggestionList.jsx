@@ -17,7 +17,7 @@ async function  DoctorSuggestionList() {
         <h2 className='mb-3 font-bold'>Suggestions</h2>
 
         {doctors.map((doctor,index)=>(
-            <Link href={'/details/'+doctor.id} className=' mb-4 p-3 shadow-sm w-full 
+            <Link href={'/details/'+doctor.objectId} className=' mb-4 p-3 shadow-sm w-full 
             cursor-pointer hover:bg-slate-100
             rounded-lg flex items-center gap-3'>
                 <Image src={doctor.image}

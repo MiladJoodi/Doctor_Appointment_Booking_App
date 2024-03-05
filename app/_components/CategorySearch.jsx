@@ -68,7 +68,7 @@ const CategorySearch = () => {
       :
       // Skeleton Effect
       [1,2,3,4,5,6].map((item, index)=>(
-      <div className="w-[130px] h-[120px] bg-slate-200 m-2 animate-pulse rounded">
+      <div className="w-[130px] h-[120px] bg-slate-200 m-2 animate-pulse rounded" key={index}>
       </div>
       ))
       }

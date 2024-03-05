@@ -1,4 +1,5 @@
 // "use client";
+import { usePathname } from "next/navigation";
 // import DoctorList from "@/app/_components/DoctorList";
 // import axios from "axios";
 // import { useEffect, useState } from "react";
@@ -6,7 +7,9 @@
 import DoctorDetail from "./_components/DoctorDetail";
 import DoctorSuggestionList from "./_components/DoctorSuggestionList";
 
-const Details = async ({ params }) => {
+
+const Details = ({ params }) => {
+
 
   return (
     <div className='p-5 md:px-10'>

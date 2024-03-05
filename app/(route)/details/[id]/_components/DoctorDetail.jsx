@@ -1,10 +1,25 @@
+"use client";
 import { Button } from '@/components/ui/button'
 import { GraduationCap, MapPin } from 'lucide-react'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 // import BookAppointment from './BookAppointment'
 
-function DoctorDetail({doctor}) {
+const getData = async (params)=>{
+    console.log(params)
+    const res = await fetch('https://realtendency.backendless.app/api/data/DoctorsCat/'+params)
+    return res.json();
+}
+
+async function DoctorDetail() {
+
+    // console.log(params.id)
+    const pathName = usePathname()
+    var params = pathName.split('/')[2];
+    const doctor = await getData(params)
+    console.log(doctor)
+
     const socialMediaList=[
         {
             id:1,
@@ -27,12 +42,17 @@ function DoctorDetail({doctor}) {
             url:''
         }
     ]
+
+    
+  
+    
+
   return (
     <>
     <div className='grid grid-cols-1 md:grid-cols-3 border-[1px] p-5 mt-5 rounded-lg'>
           {/* Doctor Image  */}
           <div>
-              <Image src={"https://res.cloudinary.com/dvytn4u6i/image/upload/v1707797197/pleased_young_female_doctor_wearing_medical_robe_stethoscope_around_neck_standing_with_closed_posture_409827_254_c40afb31bd.jpg"}
+              <Image src={doctor.image}
               width={200}
               height={200}
               alt='doctor-image'
@@ -44,14 +64,14 @@ function DoctorDetail({doctor}) {
                 <h2 className='font-bold text-2xl'>Dr. Lary Page</h2>
                 <h2 className='flex gap-2 text-gray-500 text-md'>
                     <GraduationCap/>
-                    <span>20 Year of Experince</span>
+                    <span>{doctor.Experience} Year of Experince</span>
                 </h2>
                 <h2 className='text-md flex gap-2 text-gray-500'>
                     <MapPin/>
-                    <span>Address</span>
+                    <span>{doctor.Address}</span>
                 </h2>
                 <h2 className='text-[10px] bg-blue-100 p-1 rounded-full
-                        px-2 text-primary'>Dr. Lary Page</h2>
+                        px-2 text-primary'>{doctor.name}</h2>
 
                 <div className='flex gap-3'>
                     {socialMediaList.map((item,index)=>(
@@ -71,7 +91,7 @@ function DoctorDetail({doctor}) {
         </div>
          <div className='p-3 border-[1px] rounded-lg mt-5'>
          <h2 className='font-bold text-[20px]'>About Me</h2>
-         <p className='text-gray-500 tracking-wide mt-2'>547 Carrington Trace Drive, Cornelius</p>
+         <p className='text-gray-500 tracking-wide mt-2'>{doctor.Address}</p>
        </div>
        </>
   )
