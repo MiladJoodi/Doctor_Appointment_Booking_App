@@ -1,5 +1,5 @@
 "use client";
-import { Button } from '@/components/ui/button'
+// import { Button } from '@/components/ui/button'
 import { GraduationCap, MapPin } from 'lucide-react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
