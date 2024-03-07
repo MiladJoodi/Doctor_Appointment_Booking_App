@@ -1,5 +1,5 @@
 # Doctor_Appointment_Booking_App_Fullstack
- Full Stack App, Doctor Appointment Booking App using Next.Js | React.Js, Strapi, Tailwind css 👌
+Doctor Appointment Booking App using Next.Js | React.Js, Strapi, Tailwind css 👌
  
 <a href="https://www.typescriptlang.org/">
     <img
